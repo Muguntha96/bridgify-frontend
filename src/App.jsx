@@ -18,7 +18,6 @@ import * as memberService from './services/memberService'
 
 //components
 import Nav from './components/Nav/Nav'
-import MemberList from './pages/MemberList/MemberList'
 
 
 function App() {
@@ -48,12 +47,12 @@ function App() {
     <>
       <Nav handleScroll={handleScroll} />
       <Routes>
-        <Route path='/' element={<Landing id="landing"/>} />
+        <Route path='/' element={<Landing id="landing" newMembers={newMembers}/>} />
         <Route path='/about' element={<About id="about"/>}/>
         <Route path='/contacts' element={<Contact id="contacts"/>}/>
         <Route path='/events' element={<EventList id="events"/>}/>
-        <Route path='/newMember' element={<NewMember id="newMember" />} />
-        <Route path='/members' element={<MemberList newMembers={newMembers} />}/>
+        <Route path='/members/new' element={<NewMember id="newMember" />} />
+    
       </Routes>
 
           </>

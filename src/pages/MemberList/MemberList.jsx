@@ -6,12 +6,12 @@ const MemberList = (props) => {
     <ul>
       {props.newMembers.map((newMember)=>(
         <li key={newMember._id}>
-          {newMember.name}
+          {newMember.first_name} {newMember.last_name}
         </li>
       ))}
     </ul>
     </>
-   );
+  );
 }
- 
+
 export default MemberList;

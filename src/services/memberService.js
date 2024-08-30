@@ -1,4 +1,4 @@
-const BASE_URL=`${import.meta.env.VITE_BACK_END_SERVER_URL}/api/newMembers`
+const BASE_URL=`${import.meta.env.VITE_BACK_END_SERVER_URL}/api/members`
 
 async function index() {
   try {
