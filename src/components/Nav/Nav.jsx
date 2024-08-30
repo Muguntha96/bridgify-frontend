@@ -4,12 +4,12 @@
 import { NavLink } from "react-router-dom"
 
 // assets
-
+import logo from '../../assets/logo/logo.png'
 
 const Nav = (props) => {
   return (
     <nav>
-      {/* <NavLink to="/"><img src={logo} alt="A cute puppy" /></NavLink> */}
+      <NavLink to="/"><img src={logo} alt="Bridgify" /></NavLink>
       <NavLink to="/about"
       onScroll={() => props.handleScroll('about', '/about')}>
         About Us

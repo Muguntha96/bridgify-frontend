@@ -10,7 +10,7 @@ const EventList = ({id}) => {
     <>
     <h4>List of Events</h4>
     </>
-   );
+);
 }
- 
+
 export default EventList;

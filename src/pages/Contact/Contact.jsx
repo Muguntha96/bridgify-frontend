@@ -10,7 +10,7 @@ const Contact = ({id}) => {
   return ( 
     <>
     <h3>Conact US</h3></>
-   );
+  );
 }
- 
+
 export default Contact;
