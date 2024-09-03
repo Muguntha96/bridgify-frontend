@@ -4,7 +4,7 @@ import { registrationForm } from "./registrationForm.js"
 const NewMember = (props) => {
   const [formData,setFormData]=useState(registrationForm)
   const [successMessage, setSuccessMessage]=useState("")
-  const [successMsgVisible,setSuccessMsgVisible]=useState(false)
+  const [,setSuccessMsgVisible]=useState(false)
 
   const handleChange = event => {
     const { name, value, type, checked } = event.target;

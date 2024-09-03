@@ -25,6 +25,7 @@ function App() {
   const [events,setEvents]=useState([])
   const [futureEvt,setFutureEvts]=useState([])
   const [pastEvt,setPastEvts]=useState([])
+  const [msg,setMsg]=useState([])
   const navigate = useNavigate()
 
   useEffect(()=>{
@@ -78,14 +79,19 @@ const handleAddNewEvent = async(newEventFormData)=>{
 
   return evt
 }
+const handleContactUs = async (contactFormData) => {
+  const contactUs=await eventService.createContact(contactFormData)
+  setMsg([contactUs,...msg])
+  return contactUs
+}
 
   return (
     <>
       <Nav handleScroll={handleScroll} />
       <Routes>
-        <Route path='/' element={<Landing id="landing" newMembers={newMembers} pastEvt={pastEvt}/>} />
+        <Route path='/' element={<Landing id="landing" newMembers={newMembers} pastEvt={pastEvt} handleContactUs={handleContactUs}/>} />
         <Route path='/about' element={<About id="about"/>}/>
-        <Route path='/contacts' element={<Contact id="contacts"/>}/>
+        <Route path='/contacts' element={<Contact id="contacts" handleContactUs={handleContactUs}/>}/>
         <Route path='/events' element={<EventList id="events" futureEvt={futureEvt}/>}/>
         <Route path='/members' element={<NewMember id="newMember" handleAddNewMember={handleAddNewMember}/>} />
     

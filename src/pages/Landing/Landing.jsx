@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import MemberList from "../MemberList/MemberList"
 import EventList from "../EventList/EventList"
+import Contact from "../Contact/Contact"
 const Landing = (props) => {
 
   useEffect(()=>{
@@ -17,6 +18,9 @@ const Landing = (props) => {
       <EventList pastEvt={props.pastEvt}/>
     </div>
     <MemberList newMembers={props.newMembers} />
+    <div>
+    <Contact id="contacts" handleContactUs={props.handleContactUs}/>
+    </div>
     </>
   );
 }
