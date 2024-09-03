@@ -20,8 +20,8 @@ const Nav = (props) => {
       onScroll={() =>props. handleScroll('events', '/events')}>
         Upcoming Events
       </NavLink>
-      <NavLink to="/members/new"
-      onScroll={() => props.handleScroll('newMember', '/members/new')}>
+      <NavLink to="/members"
+      onScroll={() => props.handleScroll('newMember', '/members')}>
         Join Our Club
       </NavLink>
       {/* <NavLink to="/newBlogs"

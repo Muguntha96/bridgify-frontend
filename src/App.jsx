@@ -41,7 +41,16 @@ function App() {
   },100)
 
   }
-
+const handleAddNewMember = async(mewMemberFormData)=>{
+  const newMem=await memberService.create(mewMemberFormData)
+  if (!newMem || newMem.error) {
+    console.log('Error adding new member:', newMem ? newMem.error : 'Unknown error')
+    return
+  }
+  setNewMembers([newMem,...newMembers])
+  return newMem
+  // navigate('/members')
+}
 
   return (
     <>
@@ -51,7 +60,7 @@ function App() {
         <Route path='/about' element={<About id="about"/>}/>
         <Route path='/contacts' element={<Contact id="contacts"/>}/>
         <Route path='/events' element={<EventList id="events"/>}/>
-        <Route path='/members/new' element={<NewMember id="newMember" />} />
+        <Route path='/members' element={<NewMember id="newMember" handleAddNewMember={handleAddNewMember}/>} />
     
       </Routes>
 
