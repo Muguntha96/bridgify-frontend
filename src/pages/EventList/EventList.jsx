@@ -2,19 +2,40 @@ const EventList = (props) => {
 
   return ( 
     <>
-    <h4>List of Events</h4>
-    {!props.events.length && <h2>No events here</h2>}
-    <ul>
-      {props.events.map((event)=>(
-        <li key={event._id}>
-          <h4>Title:{event.title}</h4>
-          <h5>Description:{event.description}</h5>
-          <h5>Date:{event.date}</h5>
-          <h5>Venue:{event.location}</h5>
-          <button>Attend</button>       
-        </li>
-      ))}
-    </ul>
+    <div>
+      {props.futureEvt && (
+        <>
+          <h2>Upcoming Events</h2>
+          {props.futureEvt.length > 0 ? (
+            props.futureEvt.map(event => (
+              <div key={event._id}>
+                <h3>{event.title}</h3>
+                <p>{event.description}</p>
+                <p>{new Date(event.date).toLocaleDateString()}</p>
+              </div>
+            ))
+          ) : (
+            <p>No upcoming events</p>
+          )}
+        </>
+      )}
+
+      {props.pastEvt && (
+        <>
+            {props.pastEvt.length > 0 ? (
+            props.pastEvt.map(event => (
+              <div key={event._id}>
+                <h3>{event.title}</h3>
+                <p>{event.description}</p>
+                <p>{new Date(event.date).toLocaleDateString()}</p>
+              </div>
+            ))
+          ) : (
+            ""
+          )}
+        </>
+      )}
+    </div>
     </>
 )
 }

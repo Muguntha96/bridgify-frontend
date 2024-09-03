@@ -23,6 +23,8 @@ import Nav from './components/Nav/Nav'
 function App() {
   const [newMembers,setNewMembers]=useState([])
   const [events,setEvents]=useState([])
+  const [futureEvt,setFutureEvts]=useState([])
+  const [pastEvt,setPastEvts]=useState([])
   const navigate = useNavigate()
 
   useEffect(()=>{
@@ -33,10 +35,17 @@ function App() {
     const fetchEvents=async ()=>{
       const newEvent=await eventService.index()
       setEvents(newEvent)
+      const now=new Date()
+      const futureEvent = newEvent.filter(eve => new Date(eve.date) > now);
+      setFutureEvts(futureEvent)
+      const pastEvent=newEvent.filter(eve => new Date(eve.date)<=now)
+      setPastEvts(pastEvent)
+
     }
+    
     fetchMembers()
     fetchEvents()
-  },[])
+    },[])
   const handleScroll = (fieldId,path) =>{
     navigate(path)
     setTimeout(()=>{
@@ -60,6 +69,13 @@ const handleAddNewMember = async(newMemberFormData)=>{
 const handleAddNewEvent = async(newEventFormData)=>{
   const evt=await eventService.create(newEventFormData)
   setEvents([evt,...events])
+  const now = new Date();
+  if (new Date(evt.date) > now) {
+    setFutureEvts([evt, ...futureEvt])
+  } else {
+    setPastEvts([evt, ...pastEvt])
+  }
+
   return evt
 }
 
@@ -67,10 +83,10 @@ const handleAddNewEvent = async(newEventFormData)=>{
     <>
       <Nav handleScroll={handleScroll} />
       <Routes>
-        <Route path='/' element={<Landing id="landing" newMembers={newMembers}/>} />
+        <Route path='/' element={<Landing id="landing" newMembers={newMembers} pastEvt={pastEvt}/>} />
         <Route path='/about' element={<About id="about"/>}/>
         <Route path='/contacts' element={<Contact id="contacts"/>}/>
-        <Route path='/events' element={<EventList id="events" events={events}/>}/>
+        <Route path='/events' element={<EventList id="events" futureEvt={futureEvt}/>}/>
         <Route path='/members' element={<NewMember id="newMember" handleAddNewMember={handleAddNewMember}/>} />
     
       </Routes>
