@@ -7,6 +7,7 @@ const MemberList = (props) => {
       {props.newMembers.map((newMember)=>(
         <li key={newMember._id}>
           {newMember.first_name} {newMember.last_name}
+          <i>{newMember.role}</i>
         </li>
       ))}
     </ul>

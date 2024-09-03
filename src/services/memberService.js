@@ -29,7 +29,7 @@ async function create(newMemberFormData) {
 
     return res.json();
   } catch (error) {
-    console.error('Network error:', error.message); // Enhanced error logging
+    console.error('Network error:', error.message)
     return { error: 'Error creating new member' };
   }
 }
