@@ -12,7 +12,8 @@ import './Nav.css'
 const Nav = (props) => {
   return (
     <nav>
-      <NavLink to="/">Home</NavLink>
+      <div className="right-nav">
+      <NavLink to="/" className="home">Bridgify</NavLink>
       <NavLink to="/about" id="about" className="nav-bar">
         About Us
       </NavLink>
@@ -26,6 +27,7 @@ const Nav = (props) => {
       onScroll={() =>props. handleScroll('contacts', '/contacts')}>
         Contact US
       </NavLink>
+      </div>
       
     </nav>
   )
