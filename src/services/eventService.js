@@ -20,12 +20,13 @@ async function createContact(contactFormData) {
     })
     return res.json()
   } catch (error) {
-    return error
+    console.log(error)
+    return {error:'Failed to send message'}
   }
   
 }
 
 export{
   index,
-  createContact
+  createContact,
 }

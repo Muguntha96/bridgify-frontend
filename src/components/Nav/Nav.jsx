@@ -6,28 +6,23 @@ import { NavLink } from "react-router-dom"
 // assets
 import logo from '../../assets/logo/logo.png'
 
+//css
+import './Nav.css'
+
 const Nav = (props) => {
   return (
     <nav>
-      <NavLink to="/"
-      onScroll={() => props.handleScroll('landing', '/')}
-      ><img src={logo} alt="Bridgify" /></NavLink>
-      <NavLink to="/about"
-      onScroll={() => props.handleScroll('about', '/about')}>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/about" id="about" className="nav-bar">
         About Us
       </NavLink>
-      <NavLink to="/events"
-      onScroll={() =>props. handleScroll('events', '/events')}>
+      <NavLink to="/events" className="nav-bar">
         Upcoming Events
       </NavLink>
-      <NavLink to="/members">
+      <NavLink to="/members" className="nav-bar">
         Join Our Club
       </NavLink>
-      {/* <NavLink to="/newBlogs"
-      onScroll={() =>props. handleScroll('about', '/newBlogs')}>
-        Blogs
-      </NavLink> */}
-      <NavLink to="/contacts"
+      <NavLink to="/contacts" className="nav-bar"
       onScroll={() =>props. handleScroll('contacts', '/contacts')}>
         Contact US
       </NavLink>

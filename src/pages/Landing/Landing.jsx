@@ -1,15 +1,7 @@
-import { useEffect } from "react"
 import MemberList from "../MemberList/MemberList"
 import EventList from "../EventList/EventList"
 import Contact from "../Contact/Contact"
 const Landing = (props) => {
-
-  useEffect(()=>{
-    const field=document.getElementById(props.id)
-    if(field){
-      field.scrollIntoView({behavior:'smooth'})
-    }
-  },[props.id])
   return ( 
     <>
     <h1>Bridgify</h1>
@@ -21,7 +13,7 @@ const Landing = (props) => {
     <div>
     <Contact id="contacts" handleContactUs={props.handleContactUs}/>
     </div>
-    </>
+      </>
   );
 }
 

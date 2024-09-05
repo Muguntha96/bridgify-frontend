@@ -20,12 +20,15 @@ import * as eventService from './services/eventService'
 import Nav from './components/Nav/Nav'
 
 
+
 function App() {
   const [newMembers,setNewMembers]=useState([])
   const [events,setEvents]=useState([])
   const [futureEvt,setFutureEvts]=useState([])
   const [pastEvt,setPastEvts]=useState([])
   const [msg,setMsg]=useState([])
+
+
   const navigate = useNavigate()
 
   useEffect(()=>{
@@ -85,16 +88,18 @@ const handleContactUs = async (contactFormData) => {
   return contactUs
 }
 
+
+
   return (
     <>
       <Nav handleScroll={handleScroll} />
       <Routes>
-        <Route path='/' element={<Landing id="landing" newMembers={newMembers} pastEvt={pastEvt} handleContactUs={handleContactUs}/>} />
+        <Route path='/' element={<Landing id="landing" newMembers={newMembers} pastEvt={pastEvt} handleContactUs={handleContactUs} />} />
         <Route path='/about' element={<About id="about"/>}/>
         <Route path='/contacts' element={<Contact id="contacts" handleContactUs={handleContactUs}/>}/>
         <Route path='/events' element={<EventList id="events" futureEvt={futureEvt}/>}/>
         <Route path='/members' element={<NewMember id="newMember" handleAddNewMember={handleAddNewMember}/>} />
-    
+            
       </Routes>
 
           </>
